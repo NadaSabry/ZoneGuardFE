@@ -74,7 +74,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ZoneGuard:build:production"
+              "browserTarget": "ZoneGuard:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "browserTarget": "ZoneGuard:build:development"
