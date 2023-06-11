@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
+    "start": "ng serve",
     "build": "ng build --output-path docs --base-href /ZoneGuardFE/",
     "app": "ng serve",
     "watch": "ng build --watch --configuration development",
@@ -38,7 +38,6 @@
     "@types/d3-drag": "^3.0.2",
     "@types/d3-timer": "^3.0.0",
     "@types/jasmine": "~4.0.0",
-    "http-proxy-middleware": "^2.0.6",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

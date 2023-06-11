@@ -1,9 +1,0 @@
-{
-  "/api/*": {
-    "target": "http://138.68.80.234",
-    "secure": false,
-    "logLevel": "debug",
-    "changeOrigin": "true",
-    "pathRewrite": {"^/api": ""}
-  }
-}
