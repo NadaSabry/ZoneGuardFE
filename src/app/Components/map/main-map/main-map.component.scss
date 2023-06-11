@@ -1,0 +1,23 @@
+.container-graph{
+    display:grid;
+    &-Close_Sidebar{
+        grid-template-columns: 1fr;   
+    }
+    &-Open_Sidebar{
+        grid-template-columns: 1fr 2fr  
+    }
+   @media (max-width:600px) {
+    grid-template-columns: 1fr;
+   }
+}
+.sidebar{
+    @media (max-width:600px) {
+        grid-row-start: 2;
+        padding: 3% 3% 0% 3%;
+    }  
+}
+.graph{
+    @media (max-width:600px) {
+        grid-row-start: 1;
+    }  
+}

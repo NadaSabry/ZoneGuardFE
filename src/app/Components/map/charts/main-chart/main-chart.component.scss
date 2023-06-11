@@ -1,0 +1,58 @@
+.container{
+    position:absolute;
+    z-index: 2;
+    right:0;
+    //background-color:rgb(200,200,200);
+    width:0px;
+    height: 410px;
+    top:90px;
+    transition: width 3s;
+}
+.button{
+    width:30x;
+    height: 30px;
+    position: absolute;
+    @media(max-width:500px)  {
+      left: -25px;
+    }
+    left: -45px;
+    box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
+    cursor: pointer;
+    color:black;
+}
+.arrow{
+  top:45px;
+  border-radius: 70%;
+}
+.pie{
+  top:85px;
+  border-radius: 70%;
+}
+.bar{
+  top:125px;
+}
+.content{
+    position: relative;
+    overflow: hidden;
+}
+/*
+@keyframes shrinkAndHide {
+    0% {
+      width: 100%;
+    }
+    50% {
+      width: 50%;
+    }
+    100% {
+      display: none;
+      width:0%;
+    }
+  }
+  */
+
+
+  /*
+.container:hover{
+    width:0px;
+}
+*/

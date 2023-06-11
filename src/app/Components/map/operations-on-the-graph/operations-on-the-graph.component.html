@@ -1,0 +1,110 @@
+
+<div *ngIf="choseForm=='add_zone'" class="popup">
+    <div class="popup-content small">
+      <img src="assets/images/close.png" class="close" alt="no img" (click)="closeForm()">
+      <h3 class="popup-title">Add New Zone <img src="assets/icon/addnode.png" style="width:50px;height:50px;" alt="not found"></h3>
+  
+      <form (ngSubmit)="AddZone()">
+        <input type="text" placeholder="Zone Name" name="nodeaName" [(ngModel)]="addnode.label" required>
+        <button type="submit" class="btn btn-primary">Add Zone</button>
+      </form>
+    </div>
+  </div>
+  
+  <div *ngIf="choseForm=='add_street'" class="popup">
+    <div class="popup-content large">
+      <img src="assets/images/close.png" class="close" alt="no img" (click)="closeForm()">
+      <h3 class="popup-title">Add New Street  <img src="assets/icon/build-road.png" style="width:50px;height:50px;" alt="not found"></h3>
+  
+      <!-- initial value not work-->
+      <form (ngSubmit)="AddStreet()">
+        <div class="select">
+          <select class="form-select" name="sourceNode" id="source" [(ngModel)]="link.source">
+            <option value="source" disabled selected>Source Node</option>
+            <ng-container *ngFor="let nod of nodes">
+              <option *ngIf="link.target!=nod.id" [value]="nod.id">
+                {{nod.label}}
+              </option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="select">
+          <select class="form-select" name="targetNode" id="targe" [(ngModel)]="link.target">
+            <option value="target" disabled selected>Target Node</option>
+            <ng-container *ngFor="let nod of nodes">
+              <option *ngIf="link.source!=nod.id" [value]="nod.id">
+                {{nod.label}}
+              </option>
+            </ng-container>
+          </select>
+        </div>
+        <input type="text" placeholder="Street Name" name="linkName" [(ngModel)]="link.label" required>
+    
+        <!--
+        <input type="color" class="form-control form-control-color" name="colorName"  [(ngModel)]="link.color" value="#563d7c" title="Choose your color">
+        -->
+        
+        <!--<input type="text" placeholder="Street Color" name="linkColor" [(ngModel)]="link.color" required>
+     --> <button type="submit" class="btn btn-primary">Add Street</button>
+      </form>
+  
+    </div>
+  </div>
+  
+  <div *ngIf="choseForm=='delete_zone'" class="popup">
+    <div class="popup-content small">
+      <img src="assets/images/close.png" class="close" alt="no img" (click)="closeForm()">
+      <h3 class="popup-title">Delete Zone <img src="assets/icon/deletenode.png" style="width:50px;height: 50px;" alt="not found"></h3>
+      
+      <form (ngSubmit)="DeletZone()">
+        <div class="select">
+          <select class="form-select" name="sourceNode" id="source" [(ngModel)]="node.id">
+            <option value="123" disabled selected>choose Node</option>
+            <ng-container *ngFor="let nod of nodes">
+              <option  [value]="nod.id">
+                {{nod.label}}
+              </option>
+            </ng-container>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Delete Zone</button>
+      </form>
+    </div>
+  </div>
+  
+  <div *ngIf="choseForm=='delete_street'" class="popup">
+    <div class="popup-content small">
+      <img src="assets/images/close.png" class="close" alt="no img" (click)="closeForm()">
+      <h3 class="popup-title">Delete Street <img src="assets/icon/delete-road.png" style="width:50px;height: 50px;" alt="not found"></h3>
+      <form (ngSubmit)="DeletStreet()">
+        <div class="select">
+          <select class="form-select" name="sourceNode" id="source" [(ngModel)]="link.source">
+            <option value="source" disabled selected>Source Node</option>
+            <ng-container *ngFor="let nod of nodes">
+              <option *ngIf="link.target!=nod.id" [value]="nod.id">
+                {{nod.label}}
+              </option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="select">
+          <select class="form-select" name="targetNode" id="targe" [(ngModel)]="link.target">
+            <option value="target" disabled selected>Target Node</option>
+            <ng-container *ngFor="let nod of nodes">
+              <option *ngIf="link.source!=nod.id" [value]="nod.id">
+                {{nod.label}}
+              </option>
+            </ng-container>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Delete Street</button>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="choseForm=='upload_video'" class="popup">
+    <div class="popup-content small">
+      <img src="assets/images/close.png" class="close" alt="no img" (click)="closeForm()">
+        <app-form-upload-video [StreetID]="StreetID"></app-form-upload-video>
+    </div>
+  </div>

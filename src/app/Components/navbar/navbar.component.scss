@@ -1,0 +1,36 @@
+
+:host-context(.dark) .navbar-scroll{
+    background-color: var(--d-element);
+    transition: background-color 0.6s ease-in-out;
+ }
+ :host-context(.light) .navbar-scroll{
+     background-color: var(--l-element);
+     transition: background-color 0.6s ease-in-out;
+ }
+ 
+.Mode:hover{
+  cursor: pointer;
+}
+
+:host-context(.dark) .navbar {
+  background-color: var(--d-element);
+    transition: background-color 0.6s ease-in-out;
+}
+:host-context(.light) .navbar {
+  background-color: var(--l-element);
+    transition: background-color 0.6s ease-in-out;
+}
+
+.navbar-brand,.nav-link{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+
+/*
+.navbar-scroll {
+  background-color: #333;
+  transition: background-color 0.5s ease-in-out;
+}
+*/

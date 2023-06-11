@@ -1,0 +1,55 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+  
+    <div class="carousel-inner">
+      <div class="overlay">   
+      </div>
+      <div class="startbtn">
+        <div class="btn btn-primary" [routerLink]="'/Map'">Start</div>
+      </div>
+      <div class="carousel-item active">
+        <picture>
+          <source media="(min-width: 500px)" srcset="assets/images/ai-in-security.jpg" class="w-100 vh-100" alt="desktop logo">
+          <img src="assets/images/ai-in-security-mobile.jpg" class="w-100 vh-100" alt="Mobile logo">
+        </picture>
+        <div class="carousel-caption mb-3">
+          <h5 class="fs-3 text-uppercase">security system</h5>
+          <h6 class="text-capitalize">Use Surveillance Cameras for your compound</h6>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <picture>
+          <source media="(min-width: 500px)" srcset="assets/images/streetSlideshow.jpg" class="w-100 vh-100" alt="desktop logo">
+          <img src="assets/images/streetSlideshow-mobile.jpg" class="w-100 vh-100" alt="Mobile logo">
+        </picture>
+        <div class="carousel-caption mb-3">
+          <h5 class="fs-3 text-uppercase">For better protection</h5>
+          <h6 class="text-capitalize">Place Security Cameras in all the streets of the compound</h6>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <picture>
+          <source media="(min-width: 500px)" srcset="assets/images/security.jpg" class="w-100 vh-100" alt="desktop logo">
+          <img src="assets/images/security-mobile.jpg" class="w-100 vh-100" alt="Mobile logo">
+        </picture>
+        <div class="carousel-caption mb-3">
+          <h5 class="fs-3 text-uppercase">Protect people's lives</h5>
+          <h6 class="text-capitalize">from any abnormal event</h6>
+        </div>
+      </div>
+    </div>
+  
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  

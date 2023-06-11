@@ -1,0 +1,15 @@
+<div class="popup-title  p-3">
+    <h3 class="popup-title">Upload Video 
+        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+    </h3>
+</div>
+<div class="container">
+  <div class="file">
+    <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)" accept=".mp4">
+  </div>
+  <div class="m-3">
+    <h3 *ngIf="Message=='upload'"><i class="fa fa-spinner fa-spin fa-xl" style="--fa-primary-color: #145ddb; --fa-secondary-color: #145ddb;"></i></h3>
+    <p  *ngIf="Message!='upload'" [ngClass]="MessageType">{{Message}}</p> 
+  </div>
+  <input class="btn btn-primary mt-2" type="button" value="Upload" (click)="onUpload()">
+</div>

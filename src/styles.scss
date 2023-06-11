@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Crete+Round&family=Josefin+Sans:ital,wght@0,300;0,400;0,600;1,400&family=Nunito+Sans:ital,wght@0,300;0,600;1,800&display=swap');
+
+:root{
+  // variable
+  --white:hsl(0,0%,100%);
+
+  --d-element: hsl(209, 23%, 22%);
+  --d-bg: hsl(207, 26%, 17%);
+  --d-text:var(--white);
+
+  --l-text : hsl(200, 15%, 8%);
+  --l-input : hsl(0, 0%, 52%);
+  --l-bg: hsl(0, 0%, 98%);
+  --l-element: var(--white);
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Alata', sans-serif;
+}
+/*
+.shadow{
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.1),
+}
+*/
+/*
+:host-context(.light) nav{
+  background-color: var(--l-element);
+}
+:host-context(.dark) nav{
+    background-color: var(--d-element);
+}
+*/

@@ -1,0 +1,19 @@
+<div class="card mt-3 mb-3 shadow">
+    <div class="card-header">
+        Bar Chart Example
+    </div>
+    <div class="card-body">
+      <canvas baseChart
+        width="290" height="290" style="background-color: white; margin:auto;"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'">
+      </canvas>
+    </div>
+    <!--<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>-->
+</div>
+
+<canvas #myAreaChart></canvas>
+

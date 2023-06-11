@@ -1,0 +1,91 @@
+.foot{
+    margin-top: 50px;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 3% 10%;
+    //375
+    @media (max-width:600px) {
+        padding: 10% 0px;
+        margin-top: 30px;
+    }
+    color:var(--white);
+    display: grid;
+    grid-template-columns: 1fr;
+}
+:host-context(.dark) .foot{
+    background-color:var(--d-element);// rgb(195, 192, 192);// var(--l-input);
+}
+:host-context(.light) .foot{
+    background-color: var(--l-text);
+}
+.gridArea{
+    box-sizing: border-box;
+    display: grid;
+    align-items: center;
+    grid-row-gap:20px ;
+    grid-template-areas:
+        "land1 icon2"
+        "nav3 righ4"
+    ; 
+    @media (max-width:600px) {
+        grid-template-areas:
+        "land1"
+        "nav3"
+        "icon2"
+        "righ4";
+        justify-items: center;
+    }
+}
+.landMark1{
+    font-weight: 400;
+    font-size: 20px;
+    font-family:'Alata';
+    grid-area: land1;
+}
+.icon2{
+    grid-area: icon2;
+    .iconn{
+        margin:10px ; 
+        //padding-bottom: 5px;
+    }
+    .iconn:hover{
+        border-bottom: 2px solid var(--white);
+        cursor: pointer;
+    }
+    @media (min-width:600px) {
+        justify-self: end;
+    }
+}
+.route{
+    grid-area: nav3; 
+        display: grid;
+        padding-right: 15%;
+        grid-template-columns: repeat(5,1fr);
+        grid-row-gap: 20px;
+        @media (max-width: 655px) {
+            grid-template-columns: 1fr;
+            padding-right:0px;
+        }
+        align-items: center;
+        justify-items: start;
+        &-btn{
+          text-decoration: none;
+          color:var(--white);
+          font-weight: 400;
+          font-size: 15px;
+          font-family:'Alata';
+          padding-bottom: 5px;
+        }
+        &-btn:hover{
+            border-bottom: 2px solid var(--white);
+            cursor: pointer;
+        }
+}
+.rights4{
+    grid-area: righ4; 
+    color: var(--Dark-Gray);
+    @media (min-width:656px) {
+        justify-self: end;
+    }
+}

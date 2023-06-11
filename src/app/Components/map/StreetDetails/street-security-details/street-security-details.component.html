@@ -1,0 +1,25 @@
+<div class="Sidebar shadow">
+    <div class="container">
+        <div class="form_linkName">
+            <form (ngSubmit)="editName()">
+                <input type="text" placeholder="Street Name" name="streetName" [(ngModel)]="Link.label" required>
+                <button type="submit" class="btn btn-primary">Edit Name</button>
+            </form>
+            <div class="close_icon" (click)="close()"><i class="fa-solid fa-xmark fa-2xl"></i></div>
+        </div>
+        
+         <!--id = {{Link.id}} -->
+
+        <p style="font-family: 'Josefin Sans', sans-serif; padding:25px 15px">
+            For safety, upload your camera videos daily to see if they are safe or not
+            <span class="uploadvideo_link" (click)="FormNumberEvent.emit('upload_video')"> upload video </span>
+        </p>
+    <div class="date">
+        <p class="text-success">Anomaly Videos</p>
+        <input class="calender" type="datetime-local" name="date" (change)="OpenVideowithDate.emit(date)" [(ngModel)]="date">
+    </div>
+
+    <app-street-videos [streetId]="Link.id!" [videoDate]="date"></app-street-videos>
+
+    </div>
+</div>

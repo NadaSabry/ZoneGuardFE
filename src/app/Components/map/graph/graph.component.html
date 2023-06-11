@@ -1,0 +1,211 @@
+<div class="main">
+  <div class="dropdown">
+    <div  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="fa-solid fa-plus fa-beat fa-2xl" style="color: #000000;"></span>
+    </div>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">  
+      <li>
+        <div class="dropdown-item" (click)="FormNumberEvent.emit('add_zone')">
+           <img src="assets/icon/addnode.png" style="width:35px;height: 35px;" alt="not found">
+           Add zone
+        </div>
+      </li>
+
+      <li>
+        <div class="dropdown-item" (click)="FormNumberEvent.emit('delete_zone')">
+          <img src="assets/icon/deletenode.png" style="width:35px;height: 35px;" alt="not found">
+         Delete zone
+        </div>
+      </li>
+
+      <li>
+        <div class="dropdown-item" (click)="FormNumberEvent.emit('add_street')">
+          <img src="assets/icon/build-road.png" style="width:35px;height: 35px;" alt="not found">
+          Add street
+       </div>
+      </li>
+
+      <li>
+        <div class="dropdown-item" (click)="FormNumberEvent.emit('delete_street')">
+          <img src="assets/icon/delete-road.png" style="width:30px;height: 30px;" alt="not found">
+          Delete street
+       </div>
+      </li>
+    </ul>
+</div>
+
+  <div class="contain">
+    <div class="bglayer">
+      <ngx-graph class="chart-container"
+       [links]="links" 
+       [nodes]="nodes" 
+       [clusters]="[
+        {
+          id: 'third',
+          label: 'Cluster node',
+          childNodeIds: ['645666b0cad50c200f168473']
+       }
+      ]"
+       layout="dagreCluster">
+      <ng-template #defsTemplate>
+        <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
+          <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+        </svg:marker>
+      </ng-template>
+
+      <ng-template #clusterTemplate let-cluster>
+        <svg:g class="node cluster">
+          <svg:rect rx="10" ry="10" [attr.width]="cluster.dimension.width" [attr.height]="cluster.dimension.height"
+            [attr.fill]="cluster.data.color" />
+        </svg:g>
+      </ng-template>
+
+      <ng-template #nodeTemplate let-node>
+        <svg:g (click)="onNodeClick(node)" (dblclick)="onNodeClick(node)" class="node" ngx-tooltip>
+          <svg:circle
+            [attr.r]="20"
+            [attr.cx]="node.dimension.width / 2"
+            [attr.cy]="node.dimension.height / 2"
+            [attr.fill]="'green'|| node.data.color"
+            [attr.stroke]="node.stroke||'#ffcf35'"
+            stroke-width="2"
+            style="cursor: pointer;" 
+          ></svg:circle>
+          <svg:text alignment-baseline="central" 
+          [attr.x]="node.dimension.width / 4" 
+          [attr.y]="node.dimension.height / 2"
+          [attr.fill]="'white'"
+          style="font-family: 'Josefin Sans', sans-serif;"
+          >
+            {{node.label}}
+          </svg:text>
+        </svg:g>
+      </ng-template>
+
+      <ng-template #linkTemplate let-link>
+        <svg:g class="edge">
+          <svg:path class="line" 
+             stroke-width="4" 
+             [attr.stroke]="link.color||'#ffcf35'" 
+             (click)="onLinkClick(link)"
+             (dblclick)="onLinkClick(link)"
+             style="cursor: pointer;">
+            </svg:path>
+          <svg:text class="edge-label" text-anchor="middle">
+            <textPath class="text-path" 
+              [attr.href]="'#' + link.id" [style.dominant-baseline]="link.dominantBaseline"
+              startOffset="50%"
+              [attr.fill]="'black'"
+            >
+              {{link.label}}
+            </textPath>
+          </svg:text>
+        </svg:g>
+      </ng-template>
+      </ngx-graph>
+    </div>
+  </div>
+</div>
+      
+
+    <!--stroke is border of the node-->
+    <!--
+    <ng-template #nodeTemplate let-node>
+      <svg:g [attr.transform]="'translate(' + node.x + ',' + node.y + ')'">
+        <svg:circle
+          class="node"
+          [attr.fill]="node.fill || '#FFFFFF'"
+          [attr.stroke]="node.stroke || 'green'" 
+          [attr.stroke-width]="node.strokeWidth || 1"
+          [attr.r]="node.radius || 15"
+          (click)="onNodeClick(node)"
+          (dblclick)="onNodeClick(node)"
+          ngx-graph-no-select>
+        </svg:circle>
+        <svg:text
+          class="node-label"
+          [attr.fill]="node.labelFill || '#000000'"
+          [attr.font-size]="node.labelFontSize || 14"
+          [attr.text-anchor]="'middle'"
+          [attr.dy]="4">
+          {{ node.label }}
+        </svg:text>
+      </svg:g>
+    </ng-template>
+     --> 
+
+      
+
+  <!--
+<ng-template #linkTemplate let-link>
+  <svg:g class="edge">
+    <svg:path
+      class="line"
+      [attr.stroke]="link.stroke || '#000000'"
+      [attr.stroke-width]="link.strokeWidth || 1"
+      [attr.marker-end]="link.markerEnd || null"
+      ngx-graph-no-select>
+    </svg:path>
+    <svg:text
+      class="edge-label"
+      [attr.fill]="link.labelFill || '#000000'"
+      [attr.font-size]="link.labelFontSize || 14"
+      [attr.text-anchor]="'middle'"
+      [attr.x]="link.labelX || null"
+      [attr.y]="link.labelY || null">
+      {{ link.label }}
+    </svg:text>
+  </svg:g>
+</ng-template>
+-->
+<!-- <div class="dropdown desktopMenu">
+    <div  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="fa-solid fa-plus fa-beat fa-2xl" style="color: #000000;"></span>
+    </div>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      
+      <li (touchstart)="handleTouchStart()">
+        <a class="dropdown-item" >
+          &laquo; zone <img src="assets/images/directons.png" style="width:35px;height: 35px;" alt="not found">
+        </a>
+        <ul class="dropdown-menu dropdown-submenu" >
+          <li>
+            <div class="dropdown-item" (click)="FormNumber=1">
+               <img src="assets/icon/addnode.png" style="width:35px;height: 35px;" alt="not found">
+               Add zone
+            </div>
+          </li>
+          <li>
+            <div class="dropdown-item" (click)="FormNumber=3">
+              <img src="assets/icon/deletenode.png" style="width:35px;height: 35px;" alt="not found">
+             Delete zone
+            </div>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <div class="dropdown-item">
+          &laquo; street <img src="assets/images/road.png" style="width:35px;height:35px;" alt="not found">
+        </div>
+        <ul class="dropdown-menu dropdown-submenu">
+          <li>
+            <div class="dropdown-item" (click)="FormNumber=2">
+              <img src="assets/icon/build-road.png" style="width:35px;height: 35px;" alt="not found">
+              Add street
+           </div>
+          </li>
+          <li>
+            <div class="dropdown-item" (click)="FormNumber=4">
+              <img src="assets/icon/delete-road.png" style="width:30px;height: 30px;" alt="not found">
+              Delete street
+           </div>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+-->
+
+  

@@ -1,0 +1,207 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  //background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  color:black;
+}
+.card-header {
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0,0,0,.03);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+  //background-color: greenyellow;
+}
+
+/*
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { BaseChartDirective } from 'ng2-charts';
+//import * as Chart from 'chart.js';
+import { Chart } from 'chart.js/auto';
+//import {Chart, ChartConfiguration, ChartItem, ChartOptions, registerables} from 'node_modules/chart.js'
+
+@Component({
+  selector: 'app-pie-chart',
+  templateUrl: './pie-chart.component.html',
+  styleUrls: ['./pie-chart.component.scss']
+})
+
+export class PieChartComponent extends BaseChartDirective implements OnInit, AfterViewInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  ngAfterViewInit() {
+    this.chartjstest();
+  }
+  chartjstest(){
+    new Chart("my-chart", {
+      type: 'bar',
+      data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 5, 2, 3],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+}
+  
+  /*
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: 0.5,
+    plugins: {
+      datalabels: {
+        formatter: (value, context) => {
+          if (context.chart.data.labels === undefined) {
+            return '';
+          }
+          const label = context.chart.data.labels[context.dataIndex];
+          return label + ': ' + value + '%';
+        },
+      },
+    },
+  };
+  public pieChartLabels: Label[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
+  public pieChartData: SingleDataSet = [300, 500, 100];
+  public pieChartType: string = 'pie';  
+*/
+
+/*
+  ngOnInit(): void {
+    this.createChart()
+}
+createChart(){
+  
+  /*
+  Chart.register(...registerables);
+  this.chart = new Chart("MyChart", {
+    type: 'pie', //this denotes tha type of chart
+
+    data: {// values on X-Axis
+      labels: ['Security', 'Unsecurity'],
+       datasets: [{
+  label: 'My First Dataset',
+  data: [40,60],
+  backgroundColor: [
+    'green',
+    'red'		
+  ],
+  // out slide 
+  hoverOffset: 10
+}],
+    },
+    options: {
+      aspectRatio: 3.5,
+      plugins: {
+        datalabels: {
+          formatter: (value, context) => {
+            if (context.chart.data.labels === undefined) {
+              return '';
+            }
+            const label = context.chart.data.labels[context.dataIndex];
+            return label + ': ' + value + '%';
+          },
+        },
+      },
+    }
+
+  });
+  */
+/*
+createLineChart(): void {
+  Chart.register(...registerables);
+  const data = {
+    labels: ['January','February','March','April','May'],
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [10, 5, 2, 20, 30, 45],
+    }]
+  };
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+        display: false
+      }
+    }
+  }
+  const config: ChartConfiguration = {
+    type: 'line',
+    data: data,
+    options: options
+  }
+  const chartItem: ChartItem = document.getElementById('my-chart') as ChartItem;
+  new Chart(chartItem, config)
+}
+*/
+/*
+  ngAfterViewInit() {
+    /*
+      this.chart = new Chart(this.myPieChart.nativeElement, {
+          type: 'pie',
+          data: {
+              labels: ['Blue', 'Red', 'Yellow', 'Green'],
+              datasets: [
+                  {
+                      data: [12.21, 15.58, 11.25, 8.32],
+                      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+                  },
+              ],
+          },
+      });
+      */
+
+/*
+import { Chart, registerables } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+
+Chart.register(...registerables, ChartDataLabels);
+
+const myChart = new Chart(ctx, {
+  type: 'pie',
+  data: {
+    labels: ['Red', 'Blue', 'Yellow', 'Green'],
+    datasets: [{
+      data: [12, 19, 3, 5],
+      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#2ecc71']
+    }]
+  },
+  options: {
+    plugins: {
+      datalabels: {
+        color: 'white',
+        font: {
+          size: '16'
+        },
+        formatter: function(value, context) {
+          return context.chart.data.labels[context.dataIndex] + ': ' + value.toLocaleString();
+        }
+      }
+    }
+  }
+});
+*/

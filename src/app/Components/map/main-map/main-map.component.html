@@ -1,0 +1,13 @@
+
+<app-operations-on-the-graph [StreetID]="link.id!" [choseForm]="FormNumber" (IsCloseEvent)="closeForm()" (IsChangeEvent)="UpdateGraph=!UpdateGraph;FormNumber='close';"></app-operations-on-the-graph>
+<app-main-chart></app-main-chart>
+
+<div class="container-graph" [ngClass]="myStyle">
+  <div #sidebar class="sidebar">
+    <app-street-security-details (OpenVideowithDate)="VideoDate=$event" (FormNumberEvent)="FormNumber=$event" [hidden]="!IsOpen" [Link]="link" (hiddenStreetDetails)="closeSidebar()"></app-street-security-details>
+  </div> 
+
+  <div #graph class="graph">
+    <app-graph (showStreetDetails)="openSidebar($event)" (FormNumberEvent)="FormNumber=$event" [IsChangeGraph]="UpdateGraph" [IsCloseSidebar]="closeSB"></app-graph>
+  </div>
+</div>

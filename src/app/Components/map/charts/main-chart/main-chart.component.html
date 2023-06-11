@@ -1,0 +1,11 @@
+
+<div class="container" [style.width]="width">
+       <img src="assets/icon/pie-chart.png" class="button pie" alt="no img" (click)="chart='pie'">
+        <img src="assets/icon/bar-chart.png" class="button bar" alt="no img" (click)="chart='bar'">
+        <img [src]="arrow" class="button arrow" alt="no img" (click)="toggle()">
+
+    <div  class="content">
+        <app-pie-chart *ngIf="chart=='pie'"></app-pie-chart>
+        <app-area-chart *ngIf="chart=='bar'"></app-area-chart>
+    </div>
+</div>
