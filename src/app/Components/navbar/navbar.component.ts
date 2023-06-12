@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   strtheme="";
   theme="";
   iconMode="";
-  logourl="assets/icon/logo-no-background.svg";
+  logourl="assets/logo/logo-no-background.svg";
   //navbar!: HTMLElement;
   constructor(private themeService:ThemeService, private renderer: Renderer2){
   }

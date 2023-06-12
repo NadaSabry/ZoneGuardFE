@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/Services/theme.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  logourl="assets/logo/logo-darkmode.png";
+  
+  constructor(private themeService:ThemeService){
+  }
 
   ngOnInit(): void {
+    this.themeService.mode$.subscribe(res=> {
+      if(res=="dark"){
+        this.logourl="assets/logo/logo-darkmode.png";
+      }
+      else {
+        this.logourl="assets/logo/logo-no-background.svg";
+      }
+    });
   }
 
 }

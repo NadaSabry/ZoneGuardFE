@@ -64,7 +64,13 @@ notDone:
     )
   }
   Add(ApiRoute:string, newObj:any):Observable<any>{
-    return this.httpClient.post<any>(`${Environment.graphAPIurl}/${ApiRoute}`,JSON.stringify(newObj),this.httpOptions)
+    return this.httpClient.post<any>(`${Environment.graphAPIurl}/${ApiRoute}`,JSON.stringify(newObj),
+    {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        //Authorization: 'my-auth-token'
+      }),
+    })
     .pipe(
       retry(3),
       catchError(this.handleError)
