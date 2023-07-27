@@ -16,7 +16,6 @@ export class MainChartComponent implements OnInit {
   ngOnInit() {
     //this.onResize(window); // Call the onResize function with the window object
     this.currentWidth = window.innerWidth >= 500 ? '380px' : '330px';
-    //console.log(window.innerWidth);
   }
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {

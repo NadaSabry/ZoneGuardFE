@@ -20,12 +20,10 @@ export class FormUploadVideoComponent implements OnInit {
   }
 
   onFileSelected(event: any) {
-    console.log('event = ', event);
     this.selectedFile = <File>event.target.files[0];
   }
   private IsSizeOk() {
     const fileSizeInMB = this.selectedFile.size / (1024 * 1024);
-    console.log("fileSize", this.selectedFile.size);
     if (fileSizeInMB > 10) {
       //alert("Selected file exceeds 10MB. Please select a smaller file.");
       return false;
@@ -50,8 +48,7 @@ export class FormUploadVideoComponent implements OnInit {
       const filedata = new FormData();
       this.Message = "upload";
       filedata.append('video', this.selectedFile);
-      console.log(filedata);
-      console.log('upload in a streetID=', this.StreetID.substring(1));
+     
       // upload on the server database
       this.Apiserver.UploadFile('link', filedata, this.StreetID.substring(1)).subscribe(
         (response) => {
@@ -69,6 +66,5 @@ export class FormUploadVideoComponent implements OnInit {
     }
 
   }
-  //`http://138.68.80.234:8009/link/${this.StreetID}`
 
 }

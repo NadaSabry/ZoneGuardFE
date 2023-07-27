@@ -25,15 +25,12 @@ export class StreetSecurityDetailsComponent implements OnInit {
   }
   editName() {
     this.Link.color=undefined;
-    console.log("id=",this.Link.id);
+
 
     this.tmpLink.id=this.Link.id?.substring(1);
     this.tmpLink.label=this.Link.label;
     //this.tmpLink.videos=this.Link.videos;
-    console.log("edit name streetId = ",this.Link.id ,this.tmpLink.id );
-
-    console.log(this.Link);
-    
+  
     this.ApiService.Edit("link",this.tmpLink).subscribe(()=>{
       this.Link.color='gray';
     })

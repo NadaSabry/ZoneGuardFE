@@ -26,7 +26,6 @@ export class OperationsOnTheGraphComponent implements OnChanges {
   }
   ngOnChanges(): void
   {
-    console.log('change in form delete');
     this.getAllStreets();
   }
 
@@ -54,8 +53,6 @@ export class OperationsOnTheGraphComponent implements OnChanges {
   }
 
   AddZone(){
-    console.log("id = ", this.addnode.id);
-    console.log("label = ", this.addnode.label);
     this.ApiService.Add("node", this.addnode).subscribe(() => {
       this.IsChangeEvent.emit();
       //to appear in select Delete list
@@ -63,8 +60,6 @@ export class OperationsOnTheGraphComponent implements OnChanges {
     });
   }
   AddStreet() {
-    console.log("add success ", this.link.label);
-    //console.log("color= ", this.link.color);
     this.ApiService.Add("link", this.link).subscribe(() => {
       this.IsChangeEvent.emit();
       this.getAllStreets();
@@ -76,7 +71,6 @@ export class OperationsOnTheGraphComponent implements OnChanges {
       this.IsChangeEvent.emit();
       this.UpdateGraph();
       this.node.id = "123";
-      console.log("delete success ", this.node.id);
     });
     /*
     this.allDependenceLinkID = this.links.filter((edge) => edge.source == this.node.id || edge.target == this.node.id);
@@ -91,9 +85,7 @@ export class OperationsOnTheGraphComponent implements OnChanges {
   DeletStreet() {
     this.allDependenceLinkID = this.links.filter((edge) => (edge.source == this.link.source && edge.target == this.link.target)
       || (edge.source == this.link.target && edge.target == this.link.source));
-    console.log('DeletStreet', this.allDependenceLinkID);
     this.allDependenceLinkID.forEach((link) => {
-      console.log("id= ",link.id);
       this.ApiService.Delete("link",link.id).subscribe(() => {
         this.IsChangeEvent.emit();
         this.getAllStreets();

@@ -41,10 +41,8 @@ export class MainMapComponent implements AfterViewInit{
    this.VideoDate="none";
    this.IsOpen=true;
    this.link=link;
-   console.log("sidebar id=",this.link.id);
    this.myStyle="container-graph-Open_Sidebar";
    this.ngAfterViewInit();
-   //console.log('mmm',this.sidebarEl);
   }
   scrollToSection(section: HTMLElement) {
     section.scrollIntoView({ behavior: 'smooth', block:'start' });

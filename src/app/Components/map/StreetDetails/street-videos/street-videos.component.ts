@@ -30,7 +30,6 @@ export class StreetVideosComponent implements OnInit {
       this.videoUrl="";
     }
     if ('videoDate' in changes && this.streetId != undefined) {
-      console.log("videoDate change= ", this.videoDate, " ID= ", this.streetId);
       this.videoDate = this.videoDate.substring(0, 10);
       this.ApiService.get("link", this.streetId.substring(1)).subscribe(result => {
         this.streetResult = result?.results;
@@ -38,13 +37,11 @@ export class StreetVideosComponent implements OnInit {
         if (this.videoId) {
           this.ApiService.get("link/record", this.videoId, "frames").subscribe(result => {
             this.frames = result.framesData;
-            console.log("videoID = ", this.videoId, "frames= ", this.frames);
             this.getvideo();
           })
         }
         else {
           this.videoUrl="";
-          console.log("No video in this street :( ");
         }
       });
     }
@@ -64,18 +61,11 @@ export class StreetVideosComponent implements OnInit {
     this.currentTime = video.currentTime;
     this.duration = video.duration;
     this.fps = this.frames.length / this.duration;;
-    //console.log("currentTime=",this.currentTime," duration= ",this.duration,"fps= ",this.fps);
-
   }
 
   getCurrentFrameColor() {
-    /*
-    const frames=this.streetData[0].record.framesData;
-    console.log("frames 0 =", frames);
-    */
     const currentFrame = Math.floor(this.currentTime * this.fps);
     const IsExist = this.frames.find(frame => frame.frameNumber == currentFrame && frame.frameStatus === 'accident');
-    // console.log("curren frame =",currentFrame, " , ",this.currentTime, ",",this.currentTime*this.fps);
     IsExist == undefined ? this.status = "Normal" : this.status = "Anomaly"
     return IsExist == undefined ? 'green' : 'red';
   }

@@ -57,7 +57,6 @@ in html put this        [layoutSettings]="layoutSettings"
   private getAllNodes() {
     this.ApiService.get("node").subscribe((node) =>{
       this.nodes = node.nodes;
-      console.log('node = ',this.nodes);
     });
   }
   private getAllLinks() {
@@ -66,7 +65,6 @@ in html put this        [layoutSettings]="layoutSettings"
       this.links.forEach(edge=>{
          edge.id="a"+edge.id;
       });
-      console.log('link = ',this.links);
     });
   }
 
@@ -96,7 +94,6 @@ in html put this        [layoutSettings]="layoutSettings"
   }
   ngOnChanges(changes: SimpleChanges): void {
     if ('IsCloseSidebar' in changes) {
-      console.log("change_graph");
       if (this.oldlinkclick != undefined) {
         this.oldlinkclick.color = '#ffcf35';
       }
@@ -136,7 +133,6 @@ in html put this        [layoutSettings]="layoutSettings"
        this.clickNode[0].stroke = '#ffcf35';
       node.stroke = '#ffcf35';
       this.clickNode.pop();
-      console.log(node.id);
       this.AddLink(this.newlink);
     }
     else {
@@ -144,36 +140,5 @@ in html put this        [layoutSettings]="layoutSettings"
       this.clickNode.pop();
     }
   }
-  /*
-  this.themeService.mode$.subscribe(res=> {
-    if(res=="dark"){
-      this.color="white";
-    }
-    else {
-      this.color="black";
-    }
-});
-*/
 
-  /*
-  ngOnChanges(): void {
-    this.getAllProd();
-  }
-*/
-
-  /*
-    change(newlink: Edge[]) {
-      console.log(newlink);
-      this.links = newlink;
-      this.cdr.detectChanges();
-    }
-  
-  
-    private AddLink(obj:Edge){
-      this.ApiService.Add("links",obj).subscribe(()=>{
-        this.getAllProd();
-        this.cdr.detectChanges();
-      });
-    }
-  */
 }
